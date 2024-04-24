@@ -4,11 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Menu</title>
-    <script src="js/lib/angular.min.js"></script>
-    <script src="js/lib/angular-ui-router.min.js"></script>
-    <script src="app.js"></script>
 </head>
 <body>
     <ui-view></ui-view>
+
+    <!-- Libraries -->
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-ui-router.min.js"></script>
+
+    <!-- Modules -->
+    <script src="js/src/menuapp.module.js"></script>
+    <script src="js/src/data/data.module.js"></script>
+
+    <!-- Routes -->
+    <script src="js/src/routes/routes.js"></script>
+
+    <!-- services -->
+    <script src="js/src/data/menudata.service.js"></script>
+
+    <!-- categories code -->
+    <script src="js/src/categories/categories.component.js"></script>
+    <script src="js/src/categories/categories.controller.js"></script>
+    
+    <!-- items code -->
+    <script src="js/src/items/items.component.js"></script>
+    <script src="js/src/items/items.controller.js"></script>
 </body>
 </html>

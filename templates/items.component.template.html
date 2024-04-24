@@ -1,0 +1,11 @@
+<h2>Items in {{ $ctrl.itemslist.category.name }} Category</h2>
+<ul>
+    <li ng-repeat="item in $ctrl.itemslist.menu_items">
+        <div style="margin-bottom: 1rem; border: 1px solid black;">
+            <h3>{{item.name}}</h3>
+            <div><b>Description: </b>{{item.description}}</div>
+            <div><b>Large price: </b>{{item.price_large}}</div>
+            <div><b>Small price: </b>{{item.price_small}}</div>
+        </div>      
+    </li>
+</ul>
