@@ -14,12 +14,12 @@
     
             .state('home', {
                 url: '/',
-                templateUrl: '/JHU-Ajax-Module-9/templates/home.template.html'
+                templateUrl: '../templates/home.template.html'
             })
     
             .state('categories', {
                 url: '/categories',
-                templateUrl: '/JHU-Ajax-Module-9/templates/categories.template.html',
+                templateUrl: '../templates/categories.template.html',
                 controller: 'CategoriesComponentController',
                 controllerAs: 'catCtrl',
                 resolve: {
@@ -31,7 +31,7 @@
             
             .state('items', {
                 url: '/items/{categoryShortName}',
-                templateUrl: '/JHU-Ajax-Module-9/templates/items.template.html',
+                templateUrl: '../templates/items.template.html',
                 controller: 'ItemsComponentController',
                 controllerAs: 'itemCtrl',
                 resolve: {
