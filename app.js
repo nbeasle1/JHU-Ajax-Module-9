@@ -20,17 +20,10 @@
     angular.module('MenuApp')
     .controller('ItemsComponentController', ItemsComponentController)
 
-    // home component (home.component.js)
-    angular.module('MenuApp')
-    .component('homeComponent', {
-        templateUrl: 'templates/home.template.html'
-    })
-
     // categories component (categories.component.js)
     angular.module('MenuApp')
     .component('categoriesComponent', {
-        templateUrl: 'templates/categories.template.html',
-        controller: CategoriesComponentController,
+        templateUrl: 'templates/categories.component.template.html',
         bindings: {
             categorieslist: '<'
         }
@@ -39,8 +32,7 @@
     // items component
     angular.module('MenuApp')
     .component('itemsComponent', {
-        templateUrl: 'templates/items.template.html',
-        controller: ItemsComponentController,
+        templateUrl: 'templates/items.component.template.html',
         bindings: {
             itemslist: '<'
         }
@@ -66,7 +58,7 @@
                 url: '/categories',
                 templateUrl: 'templates/categories.template.html',
                 controller: 'CategoriesComponentController',
-                controllerAs: 'list',
+                controllerAs: 'catCtrl',
                 resolve: {
                     categorieslist: ['MenuDataService', function (MenuDataService) {
                         return MenuDataService.getAllCategories();
@@ -78,7 +70,7 @@
                 url: '/items/{categoryShortName}',
                 templateUrl: 'templates/items.template.html',
                 controller: 'ItemsComponentController',
-                controllerAs: 'list',
+                controllerAs: 'itemCtrl',
                 resolve: {
                     itemslist: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
                         return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
@@ -97,22 +89,18 @@
             })
             .then(
                 function (result) {
-                    console.log(result.data);
                     return result.data;
                 }
             )
         }
 
         service.getItemsForCategory = function (categoryShortName) {
-            $rootScope.$broadcast('items.loaded', {on: true});
             return $http({
                 url: `https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/${categoryShortName}.json`
             })
             .then(
                 function (result) {
-                    console.log(result.data);
-                    console.log("hitting items for category")
-                    $rootScope.$broadcast('items.loaded', {on: false});
+                    console.log(result.data)
                     return result.data;
                 }
             )
