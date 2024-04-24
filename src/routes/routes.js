@@ -14,12 +14,12 @@
     
             .state('home', {
                 url: '/',
-                templateUrl: '../templates/home.template.html'
+                templateUrl: 'templates/home.template.html'
             })
     
             .state('categories', {
                 url: '/categories',
-                templateUrl: '../templates/categories.template.html',
+                templateUrl: 'templates/categories.template.html',
                 controller: 'CategoriesComponentController',
                 controllerAs: 'catCtrl',
                 resolve: {
@@ -31,7 +31,7 @@
             
             .state('items', {
                 url: '/items/{categoryShortName}',
-                templateUrl: '../templates/items.template.html',
+                templateUrl: 'templates/items.template.html',
                 controller: 'ItemsComponentController',
                 controllerAs: 'itemCtrl',
                 resolve: {
